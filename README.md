@@ -1,48 +1,69 @@
-🎯 O Objetivo da Ferramenta
-Transformar milhares de avaliações brutas em ações priorizadas. Ela não apenas mede se a nota é boa ou ruim, mas lê os comentários, entende o problema real, avalia a gravidade e cria um plano de trabalho automático para o seu time.
+📊 Review Intelligence Engine
 
-⚙️ Como ela funciona (O Fluxo)
-Leitura: O script (via Colab) se conecta ao seu Google Sheets e puxa toda a base de reviews em segundos.
+Ferramenta de análise operacional que transforma milhares de avaliações brutas em ações priorizadas automaticamente.
 
-Filtro de Ruído: Descarta comentários inúteis (ex: "ok", "a") para focar no que importa, mas sem perder o peso da nota.
+Em vez de apenas mostrar dashboards de sentimento, o sistema identifica problemas reais, mede impacto, detecta tendências e cria uma fila de execução pronta para o time atuar.
 
-Classificação Inteligente: Lê o texto de cada avaliação e o encaixa em 7 motivos raiz (ex: qualidade ruim, defeito, diferente do anunciado, etc.).
+🎯 Objetivo
 
-Agrupamento: Junta tudo por Produto e por Seller.
+Reduzir o tempo entre:
 
-Cálculo de Tendência (MoM): Compara a nota do mês atual com a do mês passado para ver se o problema está piorando ou melhorando.
+“o cliente reclamou” → “o time já sabe o que fazer”.
 
-Devolução Automática: Formata e pinta as células de acordo com a urgência e devolve os dados mastigados para o Sheets.
+A ferramenta analisa reviews em escala, identifica os principais motivos de insatisfação e prioriza automaticamente produtos e sellers críticos.
 
-📊 O que ela entrega (As Abas)
-📦 Visão Produto: Um ranking de todos os seus SKUs. Mostra o volume de notas, a média, o % de pessoas que recomendam, o problema mais citado e a variação da nota (MoM).
+⚙️ Como Funciona
+Conecta ao Google Sheets via Colab
+Filtra comentários irrelevantes
+Classifica avaliações por motivo raiz
+Agrupa dados por Produto e Seller
+Calcula tendência mensal (MoM)
+Devolve análises prontas para o Sheets
+📊 O que o sistema entrega
+📦 Visão Produto
+Volume de avaliações
+Nota média
+% de recomendação
+Principal reclamação
+Tendência mensal
+🏪 Visão Seller
 
-🏪 Visão Seller: A mesma inteligência, mas focada na performance dos lojistas. Ideal para gestão de parceiros.
+Monitoramento operacional dos lojistas com foco em qualidade e experiência do cliente.
 
-📋 Tarefas (O Coração do Sistema): Onde seu time deve trabalhar todos os dias. Só lista os Produtos e Sellers que estão causando problemas reais.
+📋 Aba de Tarefas
 
-🧠 As Regras de Negócio (O "Cérebro" do Sistema)
-A ferramenta toma decisões sozinha com base em duas réguas que configuramos:
+O coração do sistema.
 
-1. Régua de Status (Define quem entra no radar):
-Aplica-se apenas a itens com 7 ou mais avaliações:
+Lista automaticamente apenas os produtos e sellers que exigem ação imediata, já organizados por prioridade.
 
-🟢 Bons: Nota acima de 3.
+🧠 Regras de Negócio
+Status
 
-🟡 Atenção: Nota entre 2 e 3 (precisa de monitoramento).
+Aplicado para itens com 7+ avaliações:
 
-🔴 Ruim: Nota abaixo de 2 (foco das tarefas).
+🟢 Bom → Nota > 3
+🟡 Atenção → Nota entre 2 e 3
+🔴 Ruim → Nota < 2
+Prioridade Dinâmica
 
-2. Régua de Prioridade Dinâmica (Define o que fazer primeiro):
-Cruza o volume de dor com a gravidade da nota para ordenar a aba de Tarefas:
+A maioria das ferramentas apenas mostra que existe um problema.
 
-🚨 1 - CRÍTICA: Mais de 25 avaliações e nota < 1.8 (Incêndio florestal).
+Esta ferramenta:
 
-🔥 2 - ALTA: Mais de 15 avaliações e nota < 2.2 (Fogo alto).
+identifica a causa,
+mede impacto,
+prioriza automaticamente,
+e entrega um plano operacional pronto.
 
-⚡ 3 - MÉDIA: Mais de 7 avaliações e nota < 2.5 (Fumaça).
+O analista abre a aba de tarefas e já sabe exatamente onde agir.
 
-🚀 O Grande Diferencial
-A maioria das operações gasta horas por semana montando "dashboards de sentimento" que só dizem que o cenário está ruim. A sua ferramenta pula a fase do diagnóstico manual e já entrega o plano de execução.
+🛠️ Stack
+Python
+Pandas
+Google Colab
+Google Sheets API
+NLP / Classificação textual
+📈 Resultado
 
-O seu analista de CX agora chega na segunda-feira, abre a aba Tarefas, pega o ID do Produto/Loja classificado como "CRÍTICA", olha qual é o motivo resumido e já toma a ação imediata. Tempo de análise caiu de horas para zero.
+Menos tempo analisando dashboards.
+Mais tempo resolvendo problemas reais.
